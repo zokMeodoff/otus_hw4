@@ -19,7 +19,13 @@ try:
         with open(json_path, 'r', encoding='utf-8') as f:
             data = json.loads(f.read())
         for product in data["products"]:
-            db_session.add(Product(product["author"], product["name"], product["price"], product["description"], product["image"]))
+            db_session.add(Product(
+              product["author"], 
+              product["name"], 
+              product["price"], 
+              product["description"], 
+              product["image"]
+            ))
         db_session.commit()
     else:
         init_db()
